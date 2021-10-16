@@ -46,7 +46,7 @@ body {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
   display: grid;
-  grid-template-columns: 1fr 240px 1fr;
+  grid-template-columns: 1fr 250px 1fr;
   grid-template-rows: 1fr;
   align-items: center;
   justify-items: center;
@@ -54,19 +54,20 @@ body {
 
 @media (min-width: 576px) {
   .header {
-    grid-template-columns: 1fr 454px 1fr;
+    grid-template-columns: 1fr 480px 1fr;
   }
 }
 
 .stripe {
+  display: none;
   width: 100%;
-  height: 0.8rem;
   background-color: var(--stripe-color);
 }
 
 @media (min-width: 576px) {
   .stripe {
-    height: 1.5rem;
+    display: block;
+    height: 1.1rem;
   }
 }
 
@@ -82,11 +83,30 @@ body {
   border-radius: 10rem 0 0 10rem;
 }
 
-.figure {
-  width: 0.8rem;
-  height: 3rem;
+.asterisk {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
+  display: grid;
+  animation: rotate 5s linear infinite;
+}
+
+.asterisk.left {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  justify-self: end;
+}
+
+.asterisk.right {
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
+  justify-self: start;
+}
+
+.figure {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  width: 0.8rem;
+  height: 3rem;
   background-color: var(--stripe-color);
   border-radius: 10rem;
   overflow: hidden;
@@ -99,24 +119,16 @@ body {
   }
 }
 
-.figure.left {
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
-  justify-self: end;
+.figure.deg0 {
+  animation: pulse0 1s linear infinite;
 }
 
-.figure.right {
-  grid-column: 3 / 4;
-  grid-row: 1 / 2;
-  justify-self: start;
+.figure.deg60 {
+  animation: pulse60 1s linear infinite;
 }
 
-.figure.normal {
-  animation: rotate 4s linear infinite normal;
-}
-
-.figure.reverse {
-  animation: rotate 4s linear infinite reverse;
+.figure.deg270 {
+  animation: pulse270 1s linear infinite;
 }
 
 .title {
@@ -148,7 +160,13 @@ body {
   grid-column: 1 / 2;
   grid-row: 2 / 3;
   padding: 1rem;
-  margin-top: 7rem;
+  margin-top: 4rem;
+}
+
+@media (min-width: 576px) {
+  .main {
+    margin-top: 7rem;
+  }
 }
 
 .slider {
@@ -175,7 +193,7 @@ body {
 .slider-inner {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
-  box-shadow: 0 0 10px 0 var(--text-dark-color);
+  box-shadow: 0 0 5px 2px rgb(0, 1, 19);
 }
 
 @media (min-width: 576px) {
@@ -234,6 +252,7 @@ body {
   flex-shrink: 0;
   color: var(--text-accent-color);
   font-size: 2.5rem;
+  line-height: 1.4;
   text-align: center;
   overflow: hidden;
 }
@@ -241,6 +260,7 @@ body {
 @media (min-width: 576px) {
   .caption {
     justify-content: start;
+    align-items: center;
     text-align: left;
   }
 }
@@ -251,17 +271,23 @@ body {
 
 @media (min-width: 576px) {
   .caption::before {
-    content: "\“ ";
-    padding-right: 1rem;
-    display: block;
-    font-size: 10rem;
-    font-family: "Georgia";
-    color: var(--stripe-color);
+    content: "";
+    min-width: 4rem;
+    height: 4rem;
+    margin-right: 1rem;
+    display: flex;
+    mask-image: url("./assets/quote.png");
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    -webkit-mask-image: url("./assets/quote.png");
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    background-color: var(--stripe-color);
+    transform: rotateZ(180deg);
   }
 }
 
 .caption::after {
-
 }
 
 .controls {
@@ -400,6 +426,10 @@ body {
   text-decoration: none;
 }
 
+.heart {
+  animation: pulse0 4s linear infinite;
+}
+
 /* Animation */
 
 @keyframes fade-in {
@@ -432,11 +462,48 @@ body {
   }
 }
 
+@keyframes pulse0 {
+  0% {
+    transform: scale(0.8) rotate(0deg);
+  }
+  50% {
+    transform: scale(1) rotate(0deg);
+  }
+  100% {
+    transform: scale(0.8) rotate(0deg);
+  }
+}
+
+@keyframes pulse60 {
+  0% {
+    transform: scale(1) rotate(60deg);
+  }
+  50% {
+    transform: scale(0.8) rotate(60deg);
+  }
+  100% {
+    transform: scale(1) rotate(60deg);
+  }
+}
+
+@keyframes pulse270 {
+  0% {
+    transform: scale(1) rotate(300deg);
+  }
+  50% {
+    transform: scale(0.8) rotate(300deg);
+  }
+  100% {
+    transform: scale(1) rotate(300deg);
+  }
+}
+
 @keyframes rotate {
-  form {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+
+  100% {
     transform: rotate(360deg);
   }
 }

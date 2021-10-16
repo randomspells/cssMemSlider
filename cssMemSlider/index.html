@@ -6,50 +6,63 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <title>MEMESLIDE</title>
+  <title>MEMESTORY</title>
 </head>
 
 <body>
   <div class="page">
     <header class="header">
       <div class="stripe left"></div>
-      <h1 class="title"><b class="accent">MEME</b>SLIDE</h1>
+      <h1 class="title"><b class="accent">MEME</b>STORY</h1>
       <div class="stripe right"></div>
     </header>
     <main class="main">
       <article class="slider">
-        <div class="inner">
-          <ul class="slides">
-            <li class="slide">
-              <img class="meme catfood" src="./assets/catfood.jpg" alt="cat dislike food">
+
+        <input class="slider-radio" type="radio" name="slide" id="slide1" checked>
+        <input class="slider-radio" type="radio" name="slide" id="slide2">
+        <input class="slider-radio" type="radio" name="slide" id="slide3">
+        <input class="slider-radio" type="radio" name="slide" id="slide4">
+        <input class="slider-radio" type="radio" name="slide" id="slide5">
+
+        <div class="slider-inner">
+          <ul class="slide-list">
+            <li class="slide" id="catfood">
+              <img class="meme" src="./assets/catfood.png" alt="cat dislike food" width="640"
+                height="360">
             </li>
-            <li class="slide">
-              <img class="meme sadcat" src="./assets/sadcat.jpg" alt="cat is crying">
+            <li class="slide" id="sadcat">
+              <img class="meme" src="./assets/sadcat.png" alt="cat is crying" width="640"
+                height="360">
             </li>
-            <li class="slide">
-              <img class="meme transcendence" src="./assets/transcendence.jpg" alt="transcendent cat">
+            <li class="slide" id="transcendence">
+              <img class="meme" src="./assets/transcendence.png" alt="transcendent cat" width="640"
+                height="360">
             </li>
-            <li class="slide">
-              <img class="meme kindcat" src="./assets/kindcat.png" alt="very kind cat">
+            <li class="slide" id="kindcat">
+              <img class="meme" src="./assets/kindcat.png" alt="very kind cat" width="640"
+                height="360">
             </li>
-            <li class="slide">
-              <img class="meme catvibe" src="./assets/catvibe.gif" alt="cat dance">
+            <li class="slide" id="catvibe">
+              <img class="meme" src="./assets/catvibe.gif" alt="cat dance" width="640" height="360">
             </li>
-          </ul>
         </div>
-        <div class="captions">
-          <span class="caption catfood">Salad? I Hate salad</span>
-          <span class="caption sadcat">Salad? I Hate salad</span>
-          <span class="caption transcendence">Salad? I Hate salad</span>
-          <span class="caption kindcat">Salad? I Hate salad</span>
-          <span class="caption catvibe">Salad? I Hate salad</span>
+
+
+        <div class="caption-list">
+          <span class="caption">Oh, my first codejam task</span>
+          <span class="caption">What do you mean by without JS?</span>
+          <span class="caption">After adding date to my commit</span>
+          <span class="caption">Well, it was a nice challenge</span>
+          <span class="caption">Have a good day!</span>
         </div>
+
         <div class="controls">
-          <input class="radio" type="radio" name="radiogroup" id="catfood" checked>
-          <input class="radio" type="radio" name="radiogroup" id="sadcat">
-          <input class="radio" type="radio" name="radiogroup" id="transcendence">
-          <input class="radio" type="radio" name="radiogroup" id="kindcat">
-          <input class="radio" type="radio" name="radiogroup" id="catvibe">
+          <label class="btn btn1" for="slide1"><span class="circle"></span></label>
+          <label class="btn btn2" for="slide2"><span class="circle"></span></label>
+          <label class="btn btn3" for="slide3"><span class="circle"></span></label>
+          <label class="btn btn4" for="slide4"><span class="circle"></span></label>
+          <label class="btn btn5" for="slide5"><span class="circle"></span></label>
         </div>
       </article>
     </main>

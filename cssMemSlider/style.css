@@ -25,6 +25,10 @@ body {
   background-color: var(--back-color);
 }
 
+li {
+  list-style-type: none;
+}
+
 .page {
   width: 100%;
   height: 100vh;
@@ -193,7 +197,6 @@ body {
 .slider-inner {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
-  box-shadow: 0 0 5px 2px rgb(0, 1, 19);
 }
 
 @media (min-width: 576px) {
@@ -210,7 +213,6 @@ body {
   display: flex;
   justify-content: start;
   overflow: hidden;
-  /* transition: all 0.8s cubic-bezier(0.77, 0, 0.175, 0.1.000); */
 }
 
 .slide {
@@ -260,7 +262,6 @@ body {
 @media (min-width: 576px) {
   .caption {
     justify-content: start;
-    align-items: center;
     text-align: left;
   }
 }
@@ -285,9 +286,6 @@ body {
     background-color: var(--stripe-color);
     transform: rotateZ(180deg);
   }
-}
-
-.caption::after {
 }
 
 .controls {
@@ -331,8 +329,6 @@ body {
 
 .btn:active > .circle {
   transform: scale(0.8);
-  border: 0.2rem solid var(--text-accent-color);
-  background-color: var(--text-accent-color);
 }
 
 #radio1:checked ~ .slider-inner .slide-list .slide {
@@ -382,7 +378,6 @@ body {
 #radio5:checked ~ .controls .btn5 .circle {
   border: 0.2rem solid var(--stripe-color);
   background-color: var(--stripe-color);
-  animation: slide-in 1s;
 }
 
 #radio1:checked ~ .caption-list .caption1,
@@ -390,7 +385,7 @@ body {
 #radio3:checked ~ .caption-list .caption3,
 #radio4:checked ~ .caption-list .caption4,
 #radio5:checked ~ .caption-list .caption5 {
-  animation: slide-out 1s;
+  animation: slide-in 1s;
 }
 
 #radio1:checked ~ .slider-inner .slide-list .slide1,
@@ -434,14 +429,16 @@ body {
 
 @keyframes fade-in {
   from {
+    transform: translate(100%) scale(0);
     opacity: 0;
   }
   to {
+    transform: translate(0%) scale(1);
     opacity: 1;
   }
 }
 
-@keyframes slide-out {
+@keyframes slide-in {
   from {
     transform: translate(-100%);
   }
@@ -498,12 +495,16 @@ body {
   }
 }
 
-@keyframes rotate {
+@keyframes burst {
   0% {
-    transform: rotate(0deg);
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(1.5);
   }
 
   100% {
-    transform: rotate(360deg);
+    transform: scale(1);
   }
 }

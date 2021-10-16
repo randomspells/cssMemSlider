@@ -164,12 +164,12 @@ li {
   grid-column: 1 / 2;
   grid-row: 2 / 3;
   padding: 1rem;
-  margin-top: 4rem;
+  margin-top: 3rem;
 }
 
 @media (min-width: 576px) {
   .main {
-    margin-top: 7rem;
+    margin-top: 5rem;
   }
 }
 
